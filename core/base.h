@@ -3,9 +3,11 @@
 
 // This file needs to be included first for all MSDFgen sources
 
-#ifndef MSDFGEN_PUBLIC
-#include <msdfgen/msdfgen-config.h>
-#endif
+
+// MOSAB [ NEEDED TO COMMNET THIS OUT FOR IT TO WORK ]
+//#ifndef MSDFGEN_PUBLIC
+//#include <msdfgen/msdfgen-config.h>
+//#endif
 
 #include <cstddef>
 

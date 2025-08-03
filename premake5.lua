@@ -7,6 +7,8 @@ project "freetype"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediate/" .. outputdir .. "/%{prj.name}")
 
+	print("\27[33mSetting Up " .. project().name .. "\27[0m")  -- Yellow
+
 	files
 	{
 		"freetype/include/ft2build.h",
@@ -49,6 +51,7 @@ project "freetype"
 		"freetype/src/psnames/psnames.c",
 		"freetype/src/raster/raster.c",
 		"freetype/src/sdf/sdf.c",
+		"freetype/src/svg/ftsvg.c",
 		"freetype/src/sfnt/sfnt.c",
 		"freetype/src/smooth/smooth.c",
 		"freetype/src/truetype/truetype.c",
@@ -88,11 +91,14 @@ project "freetype"
 project "msdfgen"
 	kind "StaticLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
     staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-intermediate/" .. outputdir .. "/%{prj.name}")
+
+	print("\27[33mSetting Up " .. project().name .. "\27[0m")  -- Yellow
+
 
 	files
 	{
@@ -114,7 +120,10 @@ project "msdfgen"
 
 	defines
 	{
-		"MSDFGEN_USE_CPP11"
+		"MSDFGEN_USE_CPP11",
+		"MSDFGEN_USE_LODEPNG"
+		--"MSDFGEN_USE_TINYXML2"
+		--"MSDFGEN_PUBLIC"
 	}
 
 	links
